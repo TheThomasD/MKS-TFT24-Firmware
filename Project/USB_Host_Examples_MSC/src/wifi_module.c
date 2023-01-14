@@ -107,7 +107,8 @@ extern void DMA1_Channel5_IRQHandler(void);
 
 
 void wifi_delay(int n)
-{	int i, j;
+{
+	int i, j;
 
 	uint32_t begin = getTick();
 	uint32_t end = begin;
@@ -343,7 +344,7 @@ int package_to_wifi(WIFI_RET_TYPE type, char *buf, int len)
 		{
 			memset(buf_to_wifi, 0, sizeof(buf_to_wifi));
 			index_to_wifi = 0;
-			return;
+			return 0;
 
 		}
 		
@@ -355,7 +356,7 @@ int package_to_wifi(WIFI_RET_TYPE type, char *buf, int len)
 			index_to_wifi += len;
 		 
 			if(index_to_wifi < 1)
-				return;
+				return 0;
 
 			 if(buf_to_wifi[index_to_wifi + 3] == '\n')
 			 {	
@@ -367,7 +368,7 @@ int package_to_wifi(WIFI_RET_TYPE type, char *buf, int len)
 			 	{
 			 		memset(buf_to_wifi, 0, sizeof(buf_to_wifi));
 				 	index_to_wifi = 0;
-					return;
+					return 0;
 			 	}
 
 				buf_to_wifi[0] = wifi_ret_head;

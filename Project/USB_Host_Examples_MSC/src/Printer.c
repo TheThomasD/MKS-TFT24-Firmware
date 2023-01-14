@@ -209,8 +209,8 @@ void printer_init()
 	/*wifi_cfg*/
 	gCfgItems.wifi_mode_sel = 1;//1为AP模式，其他为client模式，默认为AP模式。
 	
-	memset(wifiPara, 0, sizeof(wifiPara));
-	memset(ipPara, 0, sizeof(ipPara));
+	memset(&wifiPara, 0, sizeof(wifiPara));
+	memset(&ipPara, 0, sizeof(ipPara));
 	
 	strcpy(wifiPara.ap_name,WIFI_AP_NAME);
 	strcpy(wifiPara.keyCode,WIFI_KEY_CODE);

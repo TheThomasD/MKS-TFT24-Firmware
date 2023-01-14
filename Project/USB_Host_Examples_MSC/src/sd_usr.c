@@ -71,7 +71,7 @@ uint8_t Explore_Disk (char* path , uint8_t recu_level)
 	else if(path[0] == '1')
 		f_mount(1, &fs);
 	else
-		return;
+		return 0;
 	
 	for(;;)
 	{
@@ -85,7 +85,7 @@ uint8_t Explore_Disk (char* path , uint8_t recu_level)
 				res = f_readdir(&dir, &fno);
 				if (res != FR_OK || fno.fname[0] == 0) 
 				{
-					return;
+					return 0;
 				}
 				if (fno.fname[0] == '.')
 				{
